@@ -1,0 +1,68 @@
+
+VENDOR TABLE -
+
+
+create table vendor(
+vid int primary key auto_increment,
+vpass varchar(50) not null,
+vfirst_name varchar(30),
+vlast_name varchar(30),
+vmob varchar(12),
+vemail varchar(50) unique not null,
+vpan_card varchar(30),
+company varchar(50),
+address varchar(50)
+);
+
+
+alter table vender auto_increment=101;
+
+---------------------------------------------------------------------
+
+TENDER TABLE-
+
+create table tender(
+tid int primary key auto_increment,
+tname varchar(50),
+ttype varchar(50),
+tcost varchar(50),
+tdesc varchar(60),
+tdeadline varchar(15),
+tloc varchar(50)
+);
+
+ alter table tender auto_increment=201;
+
+------------------------------------------------------------------------
+
+TIDER TABLE-
+
+
+
+create table bidder (
+bid int primary key auto_increment,
+vid int,
+tid int,
+bidamount int,
+deadline date,
+status varchar(10) default 'pending',
+foreign key (vid) references vender(vid),
+foreign key (tid) references tender(tid)
+);
+
+
+-------------------------------------------------------------------------
+
+
+TENDER STATUS -->
+
+create table tenderstatus(
+tid int,
+bid int,
+vid int,
+status varchar(20) not null,
+foreign key (tid) references tender(tid),
+foreign key (bid) references bidder(bid),
+foreign key (vid) references vender(vid)
+);
+
