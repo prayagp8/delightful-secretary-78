@@ -26,6 +26,19 @@ public class TenderBean {
 		this.deadline = deadline;
 		this.location = location;
 	}
+	
+
+	public TenderBean( String name, String type, String cost, String desc, String deadline, String location) {
+		super();
+		
+		this.name = name;
+		this.type = type;
+		this.cost = cost;
+		this.desc = desc;
+		this.deadline = deadline;
+		this.location = location;
+	}
+
 
 
 	public int getId() {
