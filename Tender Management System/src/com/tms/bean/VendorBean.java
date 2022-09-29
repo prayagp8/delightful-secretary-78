@@ -4,7 +4,8 @@ public class VendorBean {
 
 	private int id;
 	private String pass;
-	private String name;
+	private String fname;
+	private String lname;
 	private String mob;
 	private String email;
 	private String company;
@@ -16,21 +17,54 @@ public class VendorBean {
 	public VendorBean() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
+	
 
 
 
-	public VendorBean(int id, String pass, String name, String mob, String email, String company, String address,
-			String pancard) {
+	public VendorBean(int id, String pass, String fname, String lname, String mob, String email, String company,
+			String address, String pancard) {
 		super();
 		this.id = id;
 		this.pass = pass;
-		this.name = name;
+		this.fname = fname;
+		this.lname = lname;
 		this.mob = mob;
 		this.email = email;
 		this.company = company;
 		this.address = address;
 		this.pancard = pancard;
 	}
+
+	public VendorBean(String pass, String fname, String lname, String mob, String email, String company,
+			String address, String pancard) {
+		super();
+		this.pass = pass;
+		this.fname = fname;
+		this.lname = lname;
+		this.mob = mob;
+		this.email = email;
+		this.company = company;
+		this.address = address;
+		this.pancard = pancard;
+	}
+
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "VendorBean [id=" + id + ", pass=" + pass + ", fname=" + fname + ", lname=" + lname + ", mob=" + mob
+				+ ", email=" + email + ", company=" + company + ", address=" + address + ", pancard=" + pancard + "]";
+	}
+
+
+
+
 
 
 
@@ -58,14 +92,26 @@ public class VendorBean {
 
 
 
-	public String getName() {
-		return name;
+	public String getFname() {
+		return fname;
 	}
 
 
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+
+
+	public String getLname() {
+		return lname;
+	}
+
+
+
+	public void setLname(String lname) {
+		this.lname = lname;
 	}
 
 
@@ -130,13 +176,6 @@ public class VendorBean {
 
 
 
-	@Override
-	public String toString() {
-		return "VendorBean [id=" + id + ", pass=" + pass + ", name=" + name + ", mob=" + mob + ", email=" + email
-				+ ", company=" + company + ", address=" + address + ", pancard=" + pancard + "]";
-	}
-	
-	
 	
 	
 	

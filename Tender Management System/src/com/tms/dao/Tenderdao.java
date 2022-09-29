@@ -6,4 +6,5 @@ public interface Tenderdao {
 
 	public String createTender(TenderBean tender);
 	
+	
 }

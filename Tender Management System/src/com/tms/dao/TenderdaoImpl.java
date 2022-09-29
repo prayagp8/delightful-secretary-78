@@ -1,7 +1,6 @@
 package com.tms.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -12,7 +11,7 @@ public class TenderdaoImpl implements Tenderdao {
 
 	@Override
 	public String createTender(TenderBean tender) {
-		String mesg = "tender created successfully!";
+		String mesg = "Tender not created!";
 
 
 
@@ -30,11 +29,10 @@ public class TenderdaoImpl implements Tenderdao {
 
 
 			if(x > 0)
-				mesg = "Student Registered Sucessfully !";
+				mesg = "Tendor Registered Sucessfully !";
 
 		} catch (SQLException e) {
 			mesg = e.getMessage();
-//			System.out.println("lala juju");
 		}
 
 
