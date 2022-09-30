@@ -66,3 +66,8 @@ foreign key (bid) references bidder(bid),
 foreign key (vid) references vender(vid)
 );
 
+
+CREATE NEW TENDER QUERRY-
+
+insert into tender(tname,ttype,tcost,tdesc,tdeadline,tloc) values(?,?,?,?,?,?);
+

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.tms.bean.VendorBean;
 import com.tms.dao.VendorDao;
 import com.tms.dao.VendorDaoImpl;
+import com.tms.utility.IDUtil;
 
 public class createVendorUseCase {
 
@@ -39,9 +40,14 @@ public class createVendorUseCase {
 		System.out.println("Enter vendor address: ");
 		String tloc = sc.next();
 		
+		IDUtil ids = new IDUtil();
+	
+		int tid = Integer.parseInt(ids.generateVendorId());
 		
 		
-		VendorBean vendorObj = new VendorBean(tpass, fname, lname, tmob, temail, tcompany, tpan_card, tloc);
+		
+		
+		VendorBean vendorObj = new VendorBean( tid ,tpass, fname, lname, tmob, temail, tcompany, tpan_card, tloc);
 		VendorDao dao = new VendorDaoImpl();
 		String result = dao.createVendor(vendorObj);
 		

@@ -2,10 +2,10 @@ package com.tms.bean;
 
 public class TenderStatusBean {
 
-	private String tendorId;
-	private String bidderId;
+	private int tendorId;
+	private int bidderId;
 	private String status;
-	private String vendorId;
+	private int vendorId;
 	
 	
 	
@@ -18,7 +18,7 @@ public class TenderStatusBean {
 	}
 
 
-	public TenderStatusBean(String tendorId, String bidderId, String status, String vendorId) {
+	public TenderStatusBean(int tendorId, int bidderId, String status, int vendorId) {
 		super();
 		this.tendorId = tendorId;
 		this.bidderId = bidderId;
@@ -32,22 +32,22 @@ public class TenderStatusBean {
 	}
 
 
-	public String getTendorId() {
+	public int getTendorId() {
 		return tendorId;
 	}
 
 
-	public void setTendorId(String tendorId) {
+	public void setTendorId(int tendorId) {
 		this.tendorId = tendorId;
 	}
 
 
-	public String getBidderId() {
+	public int getBidderId() {
 		return bidderId;
 	}
 
 
-	public void setBidderId(String bidderId) {
+	public void setBidderId(int bidderId) {
 		this.bidderId = bidderId;
 	}
 
@@ -62,12 +62,12 @@ public class TenderStatusBean {
 	}
 
 
-	public String getVendorId() {
+	public int getVendorId() {
 		return vendorId;
 	}
 
 
-	public void setVendorId(String vendorId) {
+	public void setVendorId(int vendorId) {
 		this.vendorId = vendorId;
 	}
 	

@@ -16,37 +16,63 @@ public class VendorDaoImpl implements VendorDao {
 
 	@Override
 	public String createVendor(VendorBean vendor) {
-		String mesg = "Vendor registration failed!";
+		String status = "Registration Failed!!";
 
 
 
-		try(Connection conn = DButil.provideConnection()) {
-			PreparedStatement ps = conn.prepareStatement("\r\n"
-					+ "insert into vender(vpass,vfirst_name,vlast_name,vmob,vemail,vpan_card,company,address) values(\r\n"
-					+ "?,?,?,?,?,?,?,?);");
 
-			ps.setString(1, vendor.getPass());
-			ps.setString(2, vendor.getFname());
-			ps.setString(3, vendor.getLname());
-			ps.setString(4, vendor.getMob());
-			ps.setString(5, vendor.getEmail());
-			ps.setString(6, vendor.getPancard());
-			ps.setString(8, vendor.getCompany());
-			ps.setString(7, vendor.getAddress());
-			int x= ps.executeUpdate();
+		try (Connection con = DButil.provideConnection()){
 
+			PreparedStatement pst = con.prepareStatement("select * from vendor where vemail=?");
 
-			if(x > 0)
-				mesg = "vendor Registered Sucessfully !";
+			pst.setString(1, vendor.getEmail());
+			ResultSet rs = pst.executeQuery();
 
-		} catch (SQLException e) {
-			mesg = e.getMessage();
+			if(rs.next()){
+
+				status = "Registration Declined! \n Email Id already Registered";
+			}
+			else{
+
+				try(Connection conn = DButil.provideConnection()) {
+
+					PreparedStatement ps = conn.prepareStatement("insert into vendor values(?,?,?,?,?,?,?,?,?)");
+
+					ps.setInt(1,vendor.getId());
+					ps.setString(2, vendor.getPass());
+					ps.setString(3, vendor.getFname());
+					ps.setString(4, vendor.getLname());
+
+					ps.setString(5, vendor.getMob());
+					ps.setString(6, vendor.getEmail());
+					ps.setString(7, vendor.getPancard());
+					ps.setString(8, vendor.getCompany());
+					ps.setString(9, vendor.getAddress());
+
+					int k = ps.executeUpdate();
+
+					if(k>0) //update successful
+						status = "Registration Successful. \n Your Vendor id: "+vendor.getId()+" \n Thanks For Registration";
+				}
+
+				catch(SQLException e){
+					e.printStackTrace();
+					status = "Error: "+e.getMessage();
+				}
+
+			}
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			status = "Error: "+ e.getErrorCode()+" : "+e.getMessage();
 		}
 
-
-		return mesg;
+		return status;
 
 	}
+	
+	
+	
 
 	@Override
 	public List<VendorBean> getAllVendorDetails() throws VendorException {
@@ -56,7 +82,7 @@ public class VendorDaoImpl implements VendorDao {
 
 		try(Connection conn= DButil.provideConnection()) {
 
-			PreparedStatement ps= conn.prepareStatement("select * from vender");
+			PreparedStatement ps= conn.prepareStatement("select * from vendor");
 
 
 
