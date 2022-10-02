@@ -26,7 +26,7 @@ public class assignedTenderUseCase {
 		
 		String status = dao.assignTender(tid, vid, bid);
 		
-		System.out.println(status);
+		System.out.println(TEXT_CYAN+ status + TEXT_RESET);
 		
 		
 		
@@ -37,4 +37,7 @@ public class assignedTenderUseCase {
 
 
 	}
+	
+	public static final String TEXT_RESET = "\u001B[0m";
+	public static final String TEXT_CYAN = "\u001B[36m";
 }

@@ -80,7 +80,7 @@ public class BidderDaoImpl implements BidderDao {
 				BidderBean bidder = new BidderBean();
 
 				bidder.setBidAmount(rs.getInt("bidamount"));
-				bidder.setBidId(rs.getInt("bidId"));
+				bidder.setBidId(rs.getInt("bid"));
 				bidder.setBidStatus(rs.getString("status"));
 				bidder.setTenderId(rs.getInt("tid"));
 				bidder.setVendorId(rs.getInt("vid"));
@@ -98,8 +98,6 @@ public class BidderDaoImpl implements BidderDao {
 
 		return bidderList;
 	}
-
-
 
 
 
@@ -156,7 +154,7 @@ public class BidderDaoImpl implements BidderDao {
 		List<BidderBean> bidderList = new ArrayList<BidderBean>();
 
 
-		
+
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
@@ -184,7 +182,7 @@ public class BidderDaoImpl implements BidderDao {
 
 			e.printStackTrace();
 		}
-	
+
 
 
 

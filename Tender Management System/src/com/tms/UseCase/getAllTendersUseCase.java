@@ -20,7 +20,7 @@ public class getAllTendersUseCase {
 			List<TenderBean> Tlist=dao.getAllTenderDetails();
 
 			Tlist.forEach(s->{
-
+				System.out.println(TEXT_BRIGHT_BG_YELLOW+"******************************************"+TEXT_RESET);
 				System.out.println("Tender id: "+ s.getId());
 				System.out.println("Tender name: "+ s.getName());
 				System.out.println("Tender type: "+ s.getType());
@@ -30,7 +30,7 @@ public class getAllTendersUseCase {
 				System.out.println("Tender location: "+s.getLocation());
 
 
-				System.out.println("******************************************");
+				System.out.println(TEXT_BRIGHT_BG_YELLOW+"******************************************"+TEXT_RESET);
 			});
 
 
@@ -42,4 +42,8 @@ public class getAllTendersUseCase {
 		}
 
 	}
+	public static final String TEXT_RESET = "\u001B[0m";
+
+
+	public static final String TEXT_BRIGHT_BG_YELLOW = "\u001B[103m";
 }

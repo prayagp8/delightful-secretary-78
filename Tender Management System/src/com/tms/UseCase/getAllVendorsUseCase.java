@@ -17,7 +17,7 @@ public class getAllVendorsUseCase {
 			List<VendorBean> Vlist=dao.getAllVendorDetails();
 			
 			Vlist.forEach(s->{
-				
+				System.out.println(TEXT_RED+"**********************************"+TEXT_RESET);
 				System.out.println("vendor id: "+ s.getId());
 				System.out.println("vendor name: "+ s.getFname());
 				System.out.println("vendor password: "+ s.getPass());
@@ -27,7 +27,7 @@ public class getAllVendorsUseCase {
 				System.out.println("vendor address: "+s.getAddress());
 				
 				
-				System.out.println("******************************************");
+				System.out.println(TEXT_RED+"**********************************"+TEXT_RESET);
 			});
 			
 			
@@ -41,4 +41,7 @@ public class getAllVendorsUseCase {
 		
 
 	}
+	public static final String TEXT_RESET = "\u001B[0m";
+
+	public static final String TEXT_RED = "\u001B[31m";
 }

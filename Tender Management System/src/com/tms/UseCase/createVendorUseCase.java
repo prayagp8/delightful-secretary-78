@@ -47,12 +47,20 @@ public class createVendorUseCase {
 		
 		
 		
-		VendorBean vendorObj = new VendorBean( tid ,tpass, fname, lname, tmob, temail, tcompany, tpan_card, tloc);
+		VendorBean vendorObj = new VendorBean( tid ,tpass, fname, lname, tmob, temail, tcompany, tloc, tpan_card);
 		VendorDao dao = new VendorDaoImpl();
 		String result = dao.createVendor(vendorObj);
 		
-		System.out.println(result);
+		
+		
+		
+		System.out.println(TEXT_RED+ result+ TEXT_RESET);
 		
 		
 	}
+	
+	
+	public static final String TEXT_RESET = "\u001B[0m";
+	public static final String TEXT_BLACK = "\u001B[30m";
+	public static final String TEXT_RED = "\u001B[31m";
 }

@@ -37,7 +37,12 @@ public class createTenderUseCase {
 		
 		String result = dao.createTender(tenderObj);
 		
-		System.out.println(result);
+		System.out.println(TEXT_PURPLE+ result + TEXT_RESET);
 		
 	}
+	
+	
+	public static final String TEXT_RESET = "\u001B[0m";
+	public static final String TEXT_BLACK = "\u001B[30m";
+	public static final String TEXT_PURPLE = "\u001B[35m";
 }

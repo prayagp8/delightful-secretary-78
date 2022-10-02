@@ -12,10 +12,10 @@ public class UserActivity {
 
 		System.out.println();
 		System.out
-		.println("Choose an options - \n" + "1. Admin Login\n" + "2. Vendor Login\n");
+		.println(TEXT_BRIGHT_RED+"  Choose an options - \n  " + "  1. Admin Login\n  " + "  2.Vendor Login\n  "+TEXT_RESET);
 
 		System.out.println();
-		System.out.println("Enter any number from above: ");
+		System.out.println(TEXT_BRIGHT_GREEN+"Enter any number from above: "+TEXT_RESET);
 
 		int choice = 0;
 
@@ -34,12 +34,12 @@ public class UserActivity {
 
 		switch (choice) {
 		case 1:
-			System.out.println("Enter admin username");
+			System.out.println(TEXT_BRIGHT_RED+"Enter admin username"+TEXT_RESET);
 			String username=sc.next();
-			System.out.println("Enter admin password");
+			System.out.println(TEXT_BRIGHT_GREEN+"Enter admin password"+TEXT_RESET);
 			String password=sc.next();
 			if(username.equals("root") && password.equals("root")) {
-				System.out.println("Admin login successful");
+				System.out.println(TEXT_BRIGHT_BG_YELLOW+"Admin login successful"+TEXT_RESET);
 				
 				UserActivity.admin();
 				
@@ -66,13 +66,14 @@ public class UserActivity {
 	public static void admin() {
 		Scanner sc=new Scanner(System.in);
 		
-		System.out.println("	 1. Register new Vendor\r\n"
+		System.out.println(TEXT_BRIGHT_BG_YELLOW
+				+"          1. Register new Vendor\r\n"
 				+ "         2. View all the vendors..\r\n"
 				+ "         3. Create new tenders.\r\n"
 				+ "         4. View All the Tenders.\r\n"
 				+ "         5. View All the Bids of a tender.\r\n"
 				+ "         6. Assign tender to a vendor\r\n"
-				+ "         7. Go Back");
+				+ "         7. Go Back"+TEXT_RESET);
 		
 		System.out.println();
 		System.out.println("Enter any number from above which you want to operate");
@@ -83,7 +84,7 @@ public class UserActivity {
 			c=sc.nextInt();
 		}catch(InputMismatchException e) {
 			System.out.println("Invalid input!");
-			System.out.println("Try again....");
+			System.out.println(TEXT_BRIGHT_RED+"Try again...."+TEXT_RESET);
 			UserActivity.admin();
 		}
 		
@@ -118,11 +119,11 @@ public class UserActivity {
 	
 	public static void Vendor() {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("	1. View all the current Tenders.\r\n"
+		System.out.println(TEXT_BRIGHT_BG_GREEN+"	1. View all the current Tenders.\r\n"
 				+ "	2. Place a Bid against a Tender.\r\n"
 				+ "	3. View status of a Bid(Whether Selected or Not)\r\n"
 				+ "	4. View his own Bid History.\r\n"
-				+ " 	5. Go back");
+				+ " 	5. Go back"+TEXT_RESET);
 		
 		System.out.println();
 		System.out.println("Enter any number from above which you want to operate");
@@ -163,9 +164,14 @@ public class UserActivity {
 	
 	
 	
+	  public static final String TEXT_RESET  = "\u001B[0m";
 
-
-
-
+	  public static final String TEXT_BRIGHT_BG_GREEN  = "\u001B[102m";
+	  public static final String TEXT_BRIGHT_BG_YELLOW = "\u001B[103m";
+	  public static final String TEXT_BRIGHT_BG_BLUE   = "\u001B[104m";
+	  public static final String TEXT_BRIGHT_BLACK  = "\u001B[90m";
+	  public static final String TEXT_BRIGHT_RED    = "\u001B[91m";
+	  public static final String TEXT_BRIGHT_GREEN  = "\u001B[92m";
+	  public static final String TEXT_BRIGHT_BG_PURPLE = "\u001B[105m";
 
 }

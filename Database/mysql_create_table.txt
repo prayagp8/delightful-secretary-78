@@ -35,7 +35,7 @@ tloc varchar(50)
 
 ------------------------------------------------------------------------
 
-TIDER TABLE-
+bidder TABLE-
 
 
 
@@ -46,7 +46,7 @@ tid int,
 bidamount int,
 deadline date,
 status varchar(10) default 'pending',
-foreign key (vid) references vender(vid),
+foreign key (vid) references vendor(vid),
 foreign key (tid) references tender(tid)
 );
 
@@ -63,7 +63,7 @@ vid int,
 status varchar(20) not null,
 foreign key (tid) references tender(tid),
 foreign key (bid) references bidder(bid),
-foreign key (vid) references vender(vid)
+foreign key (vid) references vendor(vid)
 );
 
 
